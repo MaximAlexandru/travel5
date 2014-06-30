@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html>
+	<title>&nbsp;</title>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+		
+		<script type="text/javascript" charset="utf-8" src="js/global_includes.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/functions.js"></script>
+	
+		<script src="http://malsup.github.io/jquery.blockUI.js"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPUvXhSalW8cMp82Umq8RRIli1tb8R5rU&sensor=true">
+    </script>
+    <script type="text/javascript">
+    	
+    		
+$(document).on('pageinit','#map',function(e,data){ getPos() ;});
+var lat;
+var lng;
+function getPos(){
+	
+	navigator.geolocation.getCurrentPosition(onSuccess,onError);
+}
+function initializeMap(){
+	alert('lat='+lat+",ltg="+lng);
+	
+	var myLatlng = new google.maps.LatLng(lat,lng);
+	var mapOptions={
+		zoom:10,
+		center:myLatlng,
+		mapTypeId:google.maps.MapTypeId.ROADMAP
+	};
+	var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+}
+ google.maps.event.addDomListener(window, 'load', initialize);
+
+
+function onSuccess(position){
+	
+	lat=position.coords.latitude;
+	lng=position.coords.longitude;
+	initializeMap();
+	
+}
+function onError(){
+	alert('eroare gps');
+}
+
+    	
+    </script>
+
+
+
+		
+		<style type="text/css">
+		#map-canvas{height:460px;}
+		body{height:100%;margin:0;padding:0;}
+		html{height:100%;}
+            #cont{
+            	background-color:rgba(0,0,0,0.8);
+            }
+			#wrap-header{
+				background:#32394B;
+				padding-left:0px;
+				padding-right:0px;
+			}
+		    nav{
+		    	display:none;
+		    }
+			nav ul li {
+				border-bottom: 1px solid black;
+				
+				padding:20px;
+				list-style:none;
+			}
+			nav ul li  a{
+				text-transform: none;
+				text-decoration: none;
+				color:#fff;
+				
+			}
+			
+			.col50{
+				width: 50%;
+				
+				display:inline-block
+			}
+			.col100{
+				width: 100%;
+				
+				display: inline-block;
+			}
+			.fl{
+				float:left;
+			}
+			.fr{
+				float:right;
+			}
+			.cb{
+				clear:both;
+			}
+			.menu-btn{
+				background: #000000;
+				border-radius: 10px;
+				border:none;
+				text-align: center;
+				width: auto;
+				padding: 10px;
+				float: left;
+				cursor: pointer;
+			}
+			.nav-icon{
+				width:100%;
+		
+				height: auto;
+				float:left;
+				background:#ccc;
+			}
+			.nav-wrapper{
+				width:300px;
+				margin:auto;
+			}
+			.navbar-icon{
+				float:left;
+			}
+			.nav-text{
+				float:left;
+				display: inline-block;
+			
+			}
+			.nav-text h1{
+				margin:0px;
+			}
+			#list_view{
+				background:rgba(0,0,0,0.1);
+				padding-left: 0px;
+				padding-right: 0px;
+				margin:0px;
+				display:none;
+				width:100%;
+			}
+			ul#list_view li{
+				border-bottom:rgba(0,0,0,0.2)
+				text-align: left;
+				background-color:#e5e5e5;				
+				padding-top: 4px;
+				border-bottom: 1px solid #666262;
+			}
+			a{
+				text-decoration: none;
+				color:#ccc;			}
+				#list_view li a h3{
+					text-align:left;
+					margin-bottom:10px;
+					color: #666262;
+					line-height: 1em;
+					margin:0px;
+				}
+				#list_view li a p{
+					text-align:left;
+					color: #666262;
+					line-height: 1em;
+					margin:0px;
+				}
+				#content{
+					padding:0px;
+				}
+				.button{
+					background:#000000;
+					padding:15px;
+					border-radius:10px;
+				}
+				.location-img{
+					width:35%;
+					height:100px;
+					background-size:cover;
+					float:left;
+					display:inline-block;
+					
+				}
+				.location_details{
+					padding-left: 10px;
+					width: 60%;
+					display: inline-block;
+					
+					
+				}
+				a.recomandare{
+					clear:both;
+					margin-top:10px;
+				}
+				#content-map{
+					position:absolute!important;
+					top:70px!important;
+					left:0px;
+					right:0px;
+					bottom: 10px!important;
+					padding:0;
+				}
+			
+			
+		</style>
+	</head>
+	<body>
+	
+		<!-- Start of first page I -->
+		<div data-role="page" id="acasa" data-theme="c">
+		
+			
+			
+			<!-- Header -->
+			
+			
+			<div data-role="header" id="wrap-header">
+			    
+				  
+				   
+			 </div>
+			 			
+			 
+			<!-- /header -->
+			<!-- Content    -->
+			<div data-role="content" id="content">
+
+	
+				
+				<h3>Content</h3>
+			
+				<p>
+					
+					dad
+				</p>
+			</div>
+			<!-- /content -->
+			
+			
+			<!-- footer -->
+			<div data-role="footer">
+				<h4>&copy; 2013 Your Name</h4>
+			</div>
+			<!-- /footer -->
+
+		</div>
+		<!-- /page -->
+
+
+	<div data-role="page" id="categorie">
+			<!-- Header -->
+			<div data-role="header" id="wrap-header">
+			</div>
+			<!-- /header -->
+			<!-- Content    -->
+			<div data-role="content" id"content">
+			
+				
+				<h3 class="category-name"></h3>
+				<h4 class="category-tagline"></h4>
+				<p class="category-description"></p>
+				
+				<h3>Va recomandam</h3>
+				<div class="category-locations"></div>
+				
+			
+				
+			</div>
+			<!-- /content -->
+			<!-- footer -->
+			<div data-role="footer">
+				<h4>&copy; 2013 Your Name</h4>
+			</div>
+			<!-- /footer -->
+		</div>
+		
+		<!-- Start of first page I -->
+		<div data-role="page" id="location"  data-theme="c">
+			<!-- Header -->
+			<div data-role="header" id="wrap-header">
+			
+				   <img src="img/logo.png" class="logo"/>
+				   <a href="#" class="ui-btn-right button" id="btn-menu">Menu</a>
+			 </div>
+			<!-- /header -->
+			<!-- Content    -->
+			<div data-role="content" id="content" class="location-content">
+				
+			</div>
+			<!-- /content -->
+			<!-- footer -->
+			<div data-role="footer">
+				<h4>&copy; 2013 Your Name</h4>
+			</div>
+			<!-- /footer -->
+		</div>
+		<!-- /page -->
+
+	<!-- Start of first page I -->
+		<div data-role="page" id="map"  data-theme="c">
+			<!-- Header -->
+			
+			<!-- /header -->
+			<!-- Content    -->
+			<div data-role="content" id="content-map" class="location-content">
+				<div id="map-canvas"></div>
+				
+			</div>
+			<!-- /content -->
+			<!-- footer -->
+			
+			<!-- /footer -->
+		</div>
+		<!-- /page -->
+	
+		
+
+
+<script type="text/javascript">
+   
+var panel = cont_page();
+
+	$(document).one('pagebeforecreate', function () {
+	  $.mobile.pageContainer.prepend(panel);
+	  $("#cont").panel();
+	  
+	});
+	$('#acasa').bind('pageinit',function(){
+		navbar(this);
+	});
+		$('#categorie').bind('pageinit',function(){
+		navbar(this);
+	 
+	});
+
+	
+
+    $(' body').on( "swipeleft", function() {
+            $( "#cont" ).panel( "open" );   
+    });
+    
+    $('ul#list-view > li').on('click',function(){
+    	$('#btn-menu').toggle();
+    });
+
+   
+	
+</script>
+</body>
+</html>
+
